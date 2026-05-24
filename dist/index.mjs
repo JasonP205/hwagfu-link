@@ -30,6 +30,7 @@ var JasonCode = ({
   className = "",
   classNames = {},
   type = "button",
+  size = "md",
   render
 }) => {
   const [ogData, setOgData] = useState(null);
@@ -87,6 +88,31 @@ var JasonCode = ({
     target: "_blank",
     rel: "noopener noreferrer"
   };
+  const iconSizeMap = {
+    sm: "w-4 h-4",
+    md: "w-6 h-6",
+    lg: "w-8 h-8",
+    xl: "w-12 h-12"
+  };
+  if (type === "icon") {
+    return /* @__PURE__ */ jsx(
+      Link,
+      {
+        href: url,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        className: `inline-flex shrink-0 ${className}`,
+        children: isLoading ? /* @__PURE__ */ jsx(Spinner, { size: size === "xl" || size === "lg" ? "md" : "sm", color: "current" }) : displayFavicon && /* @__PURE__ */ jsx(
+          "img",
+          {
+            src: displayFavicon,
+            alt: displayTitle,
+            className: `${iconSizeMap[size] || iconSizeMap.md} object-contain ${classNames.image || ""}`
+          }
+        )
+      }
+    );
+  }
   if (type === "link") {
     return /* @__PURE__ */ jsx(
       Link,

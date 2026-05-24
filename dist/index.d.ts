@@ -8,7 +8,8 @@ interface JasonCodeProps {
         content?: string;
         image?: string;
     };
-    type?: 'button' | 'link';
+    type?: 'button' | 'link' | 'icon';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
     render?: (data: {
         title?: string;
         favicon?: string;
