@@ -1,0 +1,38 @@
+{
+  "name": "hwagfu-link",
+  "version": "2.0.0",
+  "description": "A React component to link to Jason's page",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "jason",
+    "link"
+  ],
+  "author": "Jason Phan",
+  "license": "MIT",
+  "peerDependencies": {
+    "@heroui/react": ">=3.0.0",
+    "motion": ">=11.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tailwindcss": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@heroui/react": "^3.0.5",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "motion": "^12.40.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.3.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
+}

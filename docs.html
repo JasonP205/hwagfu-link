@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JasonCode Component Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    pre { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 pb-20">
+  
+  <div class="max-w-4xl mx-auto pt-16 px-6">
+    <header class="mb-12 border-b pb-8">
+      <h1 class="text-4xl font-extrabold tracking-tight mb-2">JasonCode React Component</h1>
+      <p class="text-xl text-gray-500">Tài liệu hướng dẫn cài đặt và sử dụng</p>
+    </header>
+
+    <main class="space-y-12">
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Giới thiệu</h2>
+        <p class="text-gray-700 leading-relaxed">
+          <strong>JasonCode</strong> là một React component linh hoạt được xây dựng dựa trên <strong>HeroUI</strong> và <strong>Tailwind CSS</strong>. Nổi bật với khả năng tự động cào (fetch) dữ liệu Open Graph và favicon của một trang web từ URL, từ đó hiển thị thành một Button, Link, hoặc Icon cực kỳ đẹp mắt mà không cần truyền ảnh tĩnh một cách thủ công.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Cài đặt</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">Component phụ thuộc vào thư viện <code>@heroui/react</code>. Đảm bảo rằng dự án của bạn đã có HeroUI và Tailwind CSS.</p>
+        <pre><code>npm install @heroui/react framer-motion</code></pre>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Ví dụ sử dụng (Usage)</h2>
+        <div class="space-y-6">
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-2">1. Dạng Button (Mặc định)</h3>
+            <pre><code>&lt;JasonCode url="https://github.com" label="Trang GitHub" /&gt;</code></pre>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-2">2. Dạng Link</h3>
+            <pre><code>&lt;JasonCode type="link" url="https://react.dev" label="React Docs" /&gt;</code></pre>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-2">3. Dạng Icon (Tùy chọn kích thước)</h3>
+            <pre><code>&lt;JasonCode type="icon" size="sm" url="https://google.com" /&gt;
+&lt;JasonCode type="icon" size="md" url="https://google.com" /&gt;
+&lt;JasonCode type="icon" size="lg" url="https://google.com" /&gt;
+&lt;JasonCode type="icon" size="xl" url="https://google.com" /&gt;</code></pre>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-2">4. Render thủ công (Custom render)</h3>
+            <pre><code>&lt;JasonCode 
+  url="https://tailwindcss.com" 
+  render={({ title, favicon, isLoading }) => (
+    isLoading ? &lt;span&gt;Đang tải...&lt;/span&gt; : (
+      &lt;div class="flex items-center gap-2 border p-2 rounded"&gt;
+        &lt;img src={favicon} width="24" /&gt;
+        &lt;span&gt;{title}&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  )}
+/&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Thuộc tính (Props)</h2>
+        <div class="overflow-x-auto rounded-lg border border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 text-left text-sm">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-3 font-semibold text-gray-900">Prop</th>
+                <th class="px-4 py-3 font-semibold text-gray-900">Type</th>
+                <th class="px-4 py-3 font-semibold text-gray-900">Default</th>
+                <th class="px-4 py-3 font-semibold text-gray-900">Mô tả</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">url</td>
+                <td class="px-4 py-3 font-mono text-gray-500">string</td>
+                <td class="px-4 py-3 font-mono text-gray-400">"https://hwagfu.dev"</td>
+                <td class="px-4 py-3 text-gray-700">Đường dẫn đích cần lấy dữ liệu (favicon/tên trang).</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">label</td>
+                <td class="px-4 py-3 font-mono text-gray-500">string</td>
+                <td class="px-4 py-3 font-mono text-gray-400">"Jason Code Space"</td>
+                <td class="px-4 py-3 text-gray-700">Chữ hiển thị trong lúc chờ tải dữ liệu OG hoặc nếu tải thất bại.</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">type</td>
+                <td class="px-4 py-3 font-mono text-gray-500">'button' | 'link' | 'icon'</td>
+                <td class="px-4 py-3 font-mono text-gray-400">'button'</td>
+                <td class="px-4 py-3 text-gray-700">Giao diện chính để hiển thị Component.</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">size</td>
+                <td class="px-4 py-3 font-mono text-gray-500">'sm' | 'md' | 'lg' | 'xl'</td>
+                <td class="px-4 py-3 font-mono text-gray-400">'md'</td>
+                <td class="px-4 py-3 text-gray-700">Kích thước của chỉ áp dụng khi <code>type="icon"</code>.</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">className</td>
+                <td class="px-4 py-3 font-mono text-gray-500">string</td>
+                <td class="px-4 py-3 font-mono text-gray-400">""</td>
+                <td class="px-4 py-3 text-gray-700">Class (thường là Tailwind) áp dụng vào vùng bao ngoài cùng.</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">classNames</td>
+                <td class="px-4 py-3 font-mono text-gray-500">{ content?: string, image?: string }</td>
+                <td class="px-4 py-3 font-mono text-gray-400">{}</td>
+                <td class="px-4 py-3 text-gray-700">Cho phép style đè chi tiết lên icon (image) và chữ (content).</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-mono text-blue-600">render</td>
+                <td class="px-4 py-3 font-mono text-gray-500">function</td>
+                <td class="px-4 py-3 font-mono text-gray-400">-</td>
+                <td class="px-4 py-3 text-gray-700">Hàm cho phép bạn tự render toàn bộ giao diện dựa trên dữ liệu hook trả về thay vì dùng UI có sẵn.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+    <footer class="mt-12 text-center text-sm text-gray-400 border-t pt-8">
+      &copy; 2026 Jason Phan Workspace
+    </footer>
+  </div>
+</body>
+</html>
